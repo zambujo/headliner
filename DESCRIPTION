@@ -1,0 +1,20 @@
+Type: package
+Package: headliner
+Title: Template for headlines
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Joao",
+           family = "Martins",
+           role = c("aut", "cre"),
+           email = "joao.martins@gmx.net",
+           comment = c(ORCID = "0000-0001-7961-4280"))
+Description: A tool for publishing headlines.
+License: MIT + file LICENSE
+URL: https://github.com/zambujo/headliner
+BugReports: https://github.com/zambujo/headliner/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Depends: 
+    R (>= 2.10)

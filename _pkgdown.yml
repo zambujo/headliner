@@ -1,0 +1,15 @@
+url: https://zambujo.github.io/headliner/
+authors:
+  Joao Martins:
+    href: https://github.com/zambujo
+
+home:
+  title: Publishing headlines with R Markdown
+  description: Make your RSS feeds look good.
+
+template:
+  params:
+    bootswatch: simplex
+  opengraph:
+    twitter:
+      creator: "@joaoTweeted"
