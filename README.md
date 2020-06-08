@@ -30,5 +30,8 @@ Use this example to publish the contents of a data frame:
 ``` r
 library(headliner)
 data(sciencegeist)
-## TODO
+
+build_simple(
+  head(sciencegeist),
+  title = "Sciencegeist newest posts", saveas = "headlines.html")
 ```

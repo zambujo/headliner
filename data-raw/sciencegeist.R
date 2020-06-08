@@ -21,6 +21,9 @@ sciencegeist <- tibble(
     description = map_chr(description,
                           function(x) html_text(read_html(x))),
     description = str_squish(description),
+    description = str_replace_all(description, "\'", "\\\\'"),
+    description = str_replace_all(description, '\"', '\\\\"'),
+    description = str_replace_all(description, "\`", "\\\\`"),
     pubDate = str_sub(pubDate, 6, 16),
     pubDate = parse_date(pubDate)) %>%
   drop_na()

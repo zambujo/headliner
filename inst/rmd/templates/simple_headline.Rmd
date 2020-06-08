@@ -1,6 +1,7 @@
 
-## `r '{{title}}'`
+### [`r '{{title}}'`](`r '{{link}}'`)
 
-**More** `r '{{link}}'`
+**`r '{{description}}'`**
 
-> `r '{{pubDate}}'`
+`r '{{pubDate}}'`
+

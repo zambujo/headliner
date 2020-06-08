@@ -38,8 +38,11 @@ devtools::install_github("zambujo/headliner")
 
 Use this example to publish the contents of a data frame:
 
-```{r example}
+```{r example, eval=FALSE}
 library(headliner)
 data(sciencegeist)
-## TODO
+
+build_simple(
+  head(sciencegeist),
+  title = "Sciencegeist newest posts", saveas = "headlines.html")
 ```
