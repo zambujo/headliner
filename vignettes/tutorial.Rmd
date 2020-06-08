@@ -1,0 +1,28 @@
+---
+title: "How to publish headlines"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using headliner to publish headlines}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(headliner)
+```
+
+# Producing a simple feed
+
+Let's see how publish `sciencegeist` RSS data.
+
+```{r}
+data(sciencegeist)
+```
+

@@ -1,0 +1,6 @@
+
+## `r '{{title}}'`
+
+**More** `r '{{link}}'`
+
+> `r '{{pubDate}}'`

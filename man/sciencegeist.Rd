@@ -7,10 +7,11 @@
 \format{
 A data frame with 118 rows and 4 columns:
 \describe{
-\item{title}{Title of the headline.}
-\item{description}{Description of the headline in html, including a link to an image.}
-\item{pubDate}{Headline timestamp.}
+\item{title}{Title of the headline on sciencegeist.}
+\item{description}{Description of the headline.}
+\item{pubDate}{Date of publication on sciencegeist.}
 \item{link}{Link to the original source.}
+\item{image}{Link to image on sciencegeist.}
 }
 }
 \source{

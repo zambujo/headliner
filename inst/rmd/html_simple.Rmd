@@ -1,0 +1,25 @@
+---
+output:
+  html_document:
+    toc: true
+    toc_float: true
+
+params:
+  headlines: NULL
+  set_title: "Simple web template"
+---
+
+---
+title: `r params$set_title`
+---
+
+
+```{r stories, echo=FALSE, results='asis'}
+output <- params$headlines %>% 
+  purrr::pmap_chr(knitr::knit_expand, 
+                  file = "templates/simple_headline.rmd")
+
+knitr::knit(text = output, quiet = TRUE) %>% 
+  glue::glue_collapse("\n")
+
+```

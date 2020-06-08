@@ -1,6 +1,5 @@
-Type: package
 Package: headliner
-Title: Template for headlines
+Title: Templates for headlines
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Joao",
@@ -18,3 +17,11 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 Depends: 
     R (>= 2.10)
+Imports: 
+    knitr,
+    glue,
+    purrr,
+    magrittr
+VignetteBuilder: knitr
+Suggests: 
+    rmarkdown
