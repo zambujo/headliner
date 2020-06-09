@@ -31,7 +31,8 @@ Use this example to publish the contents of a data frame:
 library(headliner)
 data(sciencegeist)
 
-build_simple(
-  head(sciencegeist),
-  title = "Sciencegeist newest posts", saveas = "headlines.html")
+sciencegeist <- head(sciencegeist)
+build(sciencegeist, 
+      title = "Sciencegeist newest posts", 
+      save_as = "headlines.html")
 ```

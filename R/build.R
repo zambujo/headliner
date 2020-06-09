@@ -1,17 +1,46 @@
-#' Build a simple headline page
+#' Build headline pages
 #'
-#' @param x A dataframe containing columns title, description, and link.
-#' @param saveas A string with the name of the static page for the output.
+#' @param .data A data frame, data frame extension (e.g. a tibble),
+#'   or a lazy data frame.  Expects the following string columns
+#'   *title* (required), *description*, *link*, *pubDate*, and *image*.
+#' @param save_as A string with the name of the static page for the output.
 #' @param title A title of the headlines page
 #'
 #' @return NULL
-build_simple <- function(x, saveas = "headlines.html", title = "Title") {
+#'
+#' @example
+#' \dontrun{
+#' data(sciencegeist)
+#' sciencegeist <- head(sciencegeist)
+#' build_hd(sciencegeist)
+#' }
+#' @export
+build_hd <- function(.data, save_as = "headlines.html", title = "Headlines") {
+  UseMethod("build_hd")
+}
+
+#' @export
+build_hd.data.frame <- function(.data,
+                                save_as = "headlines.html",
+                                title = "Headlines") {
+  path_to_template <- system.file(
+    "rmd",
+    "html_simple.Rmd",
+    package = "headliner")
+
+  path_to_row <- system.file(
+    "rmd/templates",
+    "simple_headline.Rmd",
+    package = "headliner")
+
   rmarkdown::render(
-    input = here::here("inst", "rmd", "html_simple.Rmd"),
+    input = path_to_template,
     output_format = "html_document",
-    output_file = saveas,
+    output_file = save_as,
     output_dir = "./",
-    params = list(headlines = x, set_title = title),
+    params = list(headlines = .data,
+                  template_child = path_to_row,
+                  set_title = title),
     quiet = FALSE)
 
 }

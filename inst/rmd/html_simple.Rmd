@@ -5,6 +5,7 @@ output:
     
 params:
   headlines: NULL
+  template_child: ""
   set_title: "Simple web template"
 ---
 
@@ -15,9 +16,7 @@ title: `r params$set_title`
 
 ```{r stories, echo=FALSE, results='asis'}
 output <- params$headlines %>% 
-  purrr::pmap_chr(knitr::knit_expand, 
-                  file = here::here("inst", "rmd", "templates", 
-                                    "simple_headline.Rmd"))
+  purrr::pmap_chr(knitr::knit_expand, params$template_child)
 
 knitr::knit(text = output, quiet = TRUE) %>% 
   glue::glue_collapse("\n")

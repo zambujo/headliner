@@ -21,8 +21,7 @@ Imports:
     knitr,
     glue,
     purrr,
-    magrittr,
-    here
+    magrittr
 VignetteBuilder: knitr
 Suggests: 
     rmarkdown
