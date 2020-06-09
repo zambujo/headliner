@@ -32,7 +32,7 @@ library(headliner)
 data(sciencegeist)
 
 sciencegeist <- head(sciencegeist)
-build(sciencegeist, 
-      title = "Sciencegeist newest posts", 
-      save_as = "headlines.html")
+build_hd(sciencegeist, 
+         title = "Sciencegeist newest posts", 
+         save_as = "headlines.html")
 ```
