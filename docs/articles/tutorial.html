@@ -92,18 +92,17 @@
 
     
     
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">headliner</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stringr</span>)</pre></body></html></div>
 <div id="producing-a-simple-feed" class="section level1">
 <h1 class="hasAnchor">
 <a href="#producing-a-simple-feed" class="anchor"></a>Producing a simple feed</h1>
 <p>Let’s see how publish <code>sciencegeist</code> RSS data for the latest month.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">sciencegeist</span>)
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">headliner</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dplyr</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">sciencegeist</span>)
 
 <span class="no">sciencegeist</span> <span class="kw">%&gt;%</span>
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="no">pubDate</span> <span class="kw">&gt;</span> <span class="st">"2020-06-01"</span>) <span class="kw">%&gt;%</span>
-  <span class="fu"><a href="https://rdrr.io/r/utils/PkgUtils.html">build</a></span>(<span class="kw">title</span> <span class="kw">=</span> <span class="st">"Sciencegeist newest posts"</span>)</pre></body></html></div>
+  <span class="fu"><a href="../reference/build_hd.html">build_hd</a></span>(<span class="kw">top_title</span> <span class="kw">=</span> <span class="st">"Sciencegeist newest posts"</span>)</pre></body></html></div>
 </div>
   </div>
 
