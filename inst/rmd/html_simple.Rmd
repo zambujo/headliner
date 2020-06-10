@@ -1,24 +1,39 @@
 ---
+params:
+  main_title: NULL
+  headlines: NULL
+  template_block: NULL
+---
+
+---
+title: `r purrr::pluck(params, "main_title")`
 output:
   html_document:
     theme: simplex
-    
-params:
-  headlines: NULL
-  template_child: ""
-  set_title: "Simple web template"
 ---
 
 ---
-title: `r params$set_title`
----
-
 
 ```{r stories, echo=FALSE, results='asis'}
-output <- params$headlines %>% 
-  purrr::pmap_chr(knitr::knit_expand, params$template_child)
+df <- purrr::pluck(params, "headlines")
+fn_block <- purrr::pluck(params, "template_block")
 
-knitr::knit(text = output, quiet = TRUE) %>% 
+# ---- add defaults to possibly missing data
+
+if (!"pubDate" %in% colnames(df))
+  df <- dplyr::mutate(df, pubDate = "")
+
+if (!"description" %in% colnames(df))
+  df <- dplyr::mutate(df, description = "")
+
+if (!"link" %in% colnames(df))
+  df <- dplyr::mutate(df, link = "#")
+
+
+md <- df %>% 
+  purrr::pmap_chr(knitr::knit_expand, fn_block)
+
+knitr::knit(text = md, quiet = TRUE) %>% 
   glue::glue_collapse("\n")
 
 ```

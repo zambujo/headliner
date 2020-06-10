@@ -4,4 +4,3 @@
 **`r '{{description}}'`**
 
 `r '{{pubDate}}'`
-

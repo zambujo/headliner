@@ -15,23 +15,27 @@
 #' build_hd(sciencegeist)
 #' }
 #' @export
-build_hd <- function(.data, save_as = "headlines.html", title = "Headlines") {
+build_hd <- function(.data,
+                     save_as = "headlines.html",
+                     top_title = "Headlines") {
   UseMethod("build_hd")
 }
 
 #' @export
 build_hd.data.frame <- function(.data,
                                 save_as = "headlines.html",
-                                title = "Headlines") {
-  # require title
-  stopifnot("must include column title" = any(title %in% colnames(.data)))
+                                top_title = "Headlines") {
+
+  # require a column named `title`
+  stopifnot("data.frame must include column named `title`" =
+              "title" %in% colnames(.data))
 
   path_to_template <- system.file(
     "rmd",
     "html_simple.Rmd",
     package = "headliner")
 
-  path_to_row <- system.file(
+  path_to_block <- system.file(
     "rmd/templates",
     "simple_headline.Rmd",
     package = "headliner")
@@ -42,9 +46,9 @@ build_hd.data.frame <- function(.data,
     output_file = save_as,
     output_dir = "./",
     params = list(headlines = .data,
-                  template_child = path_to_row,
-                  set_title = title),
-    quiet = TRUE)
+                  template_block = path_to_block,
+                  main_title = top_title),
+    quiet = FALSE) # for debugging
 
   return(0)
 }

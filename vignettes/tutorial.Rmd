@@ -14,22 +14,18 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, eval=FALSE}
-library(headliner)
-library(dplyr)
-library(stringr)
-```
-
 # Producing a simple feed
 
 Let's see how publish `sciencegeist` RSS data for the latest month.
 
 ```{r, eval=FALSE}
+library(headliner)
+library(dplyr)
 data(sciencegeist)
 
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build(title = "Sciencegeist newest posts")
+  build_hd(top_title = "Sciencegeist newest posts")
 
 ```
 
