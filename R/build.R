@@ -6,7 +6,7 @@
 #' @param save_as A string with the name of the static page for the output.
 #' @param title A title of the headlines page
 #'
-#' @return NULL
+#' @return 0
 #'
 #' @example
 #' \dontrun{
@@ -23,6 +23,9 @@ build_hd <- function(.data, save_as = "headlines.html", title = "Headlines") {
 build_hd.data.frame <- function(.data,
                                 save_as = "headlines.html",
                                 title = "Headlines") {
+  # require title
+  stopifnot("must include column title" = any(title %in% colnames(.data)))
+
   path_to_template <- system.file(
     "rmd",
     "html_simple.Rmd",
@@ -41,7 +44,8 @@ build_hd.data.frame <- function(.data,
     params = list(headlines = .data,
                   template_child = path_to_row,
                   set_title = title),
-    quiet = FALSE)
+    quiet = TRUE)
 
+  return(0)
 }
 
