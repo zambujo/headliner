@@ -11,6 +11,8 @@ MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://githu
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![Travis build
 status](https://travis-ci.org/zambujo/headliner.svg?branch=master)](https://travis-ci.org/zambujo/headliner)
+[![R build
+status](https://github.com/zambujo/headliner/workflows/R-CMD-check/badge.svg)](https://github.com/zambujo/headliner/actions)
 <!-- badges: end -->
 
 `headliner` is a package to publish headlines’ data. In other words, it
