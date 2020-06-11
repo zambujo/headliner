@@ -5,6 +5,12 @@
 
 <!-- badges: start -->
 
+[![License:
+MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/zambujo/headliner/blob/master/LICENSE)
+[![Lifecycle:
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Travis build
+status](https://travis-ci.org/zambujo/headliner.svg?branch=master)](https://travis-ci.org/zambujo/headliner)
 <!-- badges: end -->
 
 `headliner` is a package to publish headlines’ data. In other words, it
