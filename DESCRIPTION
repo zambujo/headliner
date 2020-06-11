@@ -21,7 +21,8 @@ Imports:
     knitr,
     glue,
     purrr,
-    magrittr
+    magrittr,
+    rmarkdown
 VignetteBuilder: knitr
 Suggests: 
-    rmarkdown
+    devtools
