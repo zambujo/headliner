@@ -58,4 +58,3 @@ build_hd.data.frame <- function(.data,
 
   return(0)
 }
-
