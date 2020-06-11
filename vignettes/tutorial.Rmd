@@ -2,7 +2,7 @@
 title: "How to publish headlines"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using headliner to publish headlines}
+  %\VignetteIndexEntry{How to publish headlines}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,9 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Producing a simple feed
+## Headlines as a list
 
-Let's see how publish `sciencegeist` RSS data for the latest month.
+Here's how to publish RSS data from [sciencegeist.com](https://www.sciencegeist.ch) as a list of headlines.
 
 ```{r, eval=FALSE}
 library(headliner)
@@ -25,7 +25,15 @@ data(sciencegeist)
 
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build_hd(top_title = "Sciencegeist newest posts")
-
+  build_hd(title = "Sciencegeist latest news")
 ```
 
+Please note: images are not shown in this layout.
+
+## Headlines as thumbnails
+
+```{r, eval=FALSE}
+sciencegeist %>% 
+  filter(pubDate > "2020-06-01") %>%
+  build_hd(title = "Sciencegeist latest news", layout = "card")
+```

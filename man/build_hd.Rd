@@ -4,7 +4,13 @@
 \alias{build_hd}
 \title{Build headline pages}
 \usage{
-build_hd(.data, save_as = "headlines.html", title = "Headlines")
+build_hd(
+  .data,
+  save_as = "headlines.html",
+  title = "Headlines",
+  format = "html_document",
+  layout = "list"
+)
 }
 \arguments{
 \item{.data}{A data frame, data frame extension (e.g. a tibble),
@@ -13,8 +19,22 @@ or a lazy data frame.  Expects the following string columns
 
 \item{save_as}{A string with the name of the static page for the output.}
 
-\item{title}{A title of the headlines page}
+\item{title}{A string with the title of the headlines page.}
+
+\item{format}{The output format to be passed to \code{rmarkdown::render} (TODO)}
+
+\item{layout}{A string with the style layout. Pass "list" or "card".}
+}
+\value{
+0
 }
 \description{
 Build headline pages
+}
+\examples{
+\dontrun{
+data(sciencegeist)
+sciencegeist <- head(sciencegeist)
+build_hd(sciencegeist)
+}
 }
