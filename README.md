@@ -13,6 +13,9 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 status](https://travis-ci.org/zambujo/headliner.svg?branch=master)](https://travis-ci.org/zambujo/headliner)
 [![R build
 status](https://github.com/zambujo/headliner/workflows/R-CMD-check/badge.svg)](https://github.com/zambujo/headliner/actions)
+![pkgdown](https://github.com/zambujo/headliner/workflows/pkgdown/badge.svg)
+![knit
+README](https://github.com/zambujo/headliner/workflows/Render%20README/badge.svg)
 <!-- badges: end -->
 
 `headliner` is a package to publish headlines’ data. In other words, it

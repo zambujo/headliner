@@ -1,9 +1,20 @@
+
 <div class="col-xs-12 col-sm-6">
+
 <div class="thumbnail">
+
 <a href="{{link}}" rel="noopener noreferrer" target="_blank">
-<img src="{{image}}"/>
+
+```{r echo=FALSE, eval=showImages}
+knitr::include_graphics("{{tmp}}")
+```
+
 <div class="caption">
+
 <h4>{{title}}</h4>
+
 <p><small>{{description}}</small></p>
+
 <p><small><span class="badge badge-pill badge-light">{{pubDate}}</span></small></p>
+
 </div></a></div></div>

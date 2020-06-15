@@ -25,7 +25,8 @@ data(sciencegeist)
 
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build_hd(title = "Sciencegeist latest news")
+  build_hd(title = "Sciencegeist latest news",
+           save_as = "headlines.html")
 ```
 
 Please note: images are not shown in this layout.
@@ -35,5 +36,17 @@ Please note: images are not shown in this layout.
 ```{r, eval=FALSE}
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build_hd(title = "Sciencegeist latest news", layout = "card")
+  build_hd(title = "Sciencegeist latest news", 
+           save_as = "headlines.html",
+           layout = "card")
 ```
+
+`headliner` also offers a PDF printout possibility.
+
+```{r, eval=FALSE}
+sciencegeist %>% 
+  filter(pubDate > "2020-06-01") %>%
+  build_hd(title = "Sciencegeist latest news", 
+           save_as = "headlines.pdf")
+```
+

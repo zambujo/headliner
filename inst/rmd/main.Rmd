@@ -1,0 +1,80 @@
+---
+output: 
+  html_document:
+    theme: simplex
+  pdf_document:
+    includes:
+      in_header: static/sty/headlines.sty
+    latex_engine: lualatex
+params:
+  main_title: NULL
+  headlines: NULL
+  block_type: NULL
+fontsize: 10pt
+mainfont: Carlito 
+classoption: twocolumn
+---
+
+```{r parameters, include=FALSE}
+# ---- add defaults to possibly missing data
+df <- purrr::pluck(params, "headlines")
+showImages <- ifelse(purrr::pluck(params, "block_type") == "card",
+                      "image" %in% colnames(df),
+                      FALSE)
+
+df <- dplyr::mutate(df,
+                    tmp = sprintf("%s/%04d.jpg",
+                                  here::here("tmp"),
+                                  dplyr::row_number()))
+if (showImages) {
+  dir.create(here::here("tmp"))
+  purrr::walk2(dplyr::pull(df, image),
+               dplyr::pull(df, tmp),
+               download.file)
+}
+
+```
+
+
+```{r pdf, include=FALSE, eval=knitr::is_latex_output()}
+fn_block <- system.file("rmd", "templates", 
+                        "card_tex.Rmd", 
+                        package = "headliner")
+
+# ---- write and knit data.frame
+md <- purrr::pmap_chr(df, knitr::knit_expand, fn_block, delim = c("$(", ")"))
+```
+
+```{r html, include=FALSE, eval=knitr::is_html_output()}
+# default
+fn_block <- system.file("rmd", "templates", "item.Rmd", package = "headliner")
+md <- character(1L)
+
+if (purrr::pluck(params, "block_type") == "card") {
+  # inject card css
+  md <- c(md,
+          "<style>.row.display-flex{display:flex;flex-wrap:wrap}.thumbnail{height:95%}.thumbnail{display:flex;flex-direction:column}</style>", 
+          "")
+  fn_block <- system.file("rmd", "templates", 
+                          "card_html.Rmd", 
+                          package = "headliner")
+}
+
+md <- c(md, purrr::pmap_chr(df, knitr::knit_expand, fn_block))
+```
+
+---
+title: `r purrr::pluck(params, "main_title")`
+---
+
+```{r compose, echo=FALSE, results='asis'}
+knitr::knit(text = md, quiet = TRUE) %>% 
+  glue::glue_collapse("\n")
+```
+
+```{r debug, eval=FALSE, include=FALSE}
+glue::glue("{ fn_block }")
+# print(head(df))
+print(md)
+```
+

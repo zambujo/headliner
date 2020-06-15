@@ -22,7 +22,10 @@ Imports:
     glue,
     purrr,
     magrittr,
-    rmarkdown
+    rmarkdown,
+    urltools,
+    dplyr,
+    here
 VignetteBuilder: knitr
 Suggests: 
     devtools

@@ -1,0 +1,26 @@
+
+\Begin{maintextbox}
+
+\rmfamily
+
+\large
+
+\textbf{$(title)}
+
+\footnotesize
+
+\textbf{\textit{$(pubDate)}}
+
+```{r echo=FALSE, out.width='3cm', eval=showImages}
+knitr::include_graphics("$(tmp)")
+```
+
+\small $(description)
+
+\scriptsize
+
+\textbf{Source: }\texttt{$(domain)}
+
+\End{maintextbox}
+
+\bigskip

@@ -4,24 +4,17 @@
 \alias{build_hd}
 \title{Build headline pages}
 \usage{
-build_hd(
-  .data,
-  save_as = "headlines.html",
-  title = "Headlines",
-  format = "html_document",
-  layout = "list"
-)
+build_hd(.data, save_as, title = "Headlines", layout = "list")
 }
 \arguments{
 \item{.data}{A data frame, data frame extension (e.g. a tibble),
 or a lazy data frame.  Expects the following string columns
 \emph{title} (required), \emph{description}, \emph{link}, \emph{pubDate}, and \emph{image}.}
 
-\item{save_as}{A string with the name of the static page for the output.}
+\item{save_as}{A string with the output file name.
+Either \emph{.pdf} and \emph{.html}.}
 
 \item{title}{A string with the title of the headlines page.}
-
-\item{format}{The output format to be passed to \code{rmarkdown::render} (TODO)}
 
 \item{layout}{A string with the style layout. Pass "list" or "card".}
 }
@@ -34,7 +27,7 @@ Build headline pages
 \examples{
 \dontrun{
 data(sciencegeist)
-sciencegeist <- head(sciencegeist)
-build_hd(sciencegeist)
+sciencegeist <- utils::head(sciencegeist)
+build_hd(sciencegeist, "sciencegeist.html")
 }
 }
