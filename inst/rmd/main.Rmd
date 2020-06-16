@@ -1,7 +1,7 @@
 ---
 output: 
   html_document:
-    theme: simplex
+    self_contained: true
   pdf_document:
     includes:
       in_header: static/sty/headlines.sty
@@ -16,23 +16,8 @@ classoption: twocolumn
 ---
 
 ```{r parameters, include=FALSE}
-# ---- add defaults to possibly missing data
 df <- purrr::pluck(params, "headlines")
-showImages <- ifelse(purrr::pluck(params, "block_type") == "card",
-                      "image" %in% colnames(df),
-                      FALSE)
-
-df <- dplyr::mutate(df,
-                    tmp = sprintf("%s/%04d.jpg",
-                                  here::here("tmp"),
-                                  dplyr::row_number()))
-if (showImages) {
-  dir.create(here::here("tmp"))
-  purrr::walk2(dplyr::pull(df, image),
-               dplyr::pull(df, tmp),
-               download.file)
-}
-
+showImages <- "image" %in% colnames(df)
 ```
 
 
@@ -40,6 +25,17 @@ if (showImages) {
 fn_block <- system.file("rmd", "templates", 
                         "card_tex.Rmd", 
                         package = "headliner")
+
+if (showImages) {
+  df <- dplyr::mutate(df,
+                      tmp = sprintf("%s/%04d.jpg",
+                                    here::here("tmp"),
+                                    dplyr::row_number()))
+  dir.create(here::here("tmp"))
+  purrr::walk2(dplyr::pull(df, image),
+               dplyr::pull(df, tmp),
+               download.file)
+}
 
 # ---- write and knit data.frame
 md <- purrr::pmap_chr(df, knitr::knit_expand, fn_block, delim = c("$(", ")"))

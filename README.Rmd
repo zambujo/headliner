@@ -44,12 +44,30 @@ devtools::install_github("zambujo/headliner")
 
 Use this example to publish the contents of a data frame:
 
-```{r example, eval=FALSE}
+```{r example-1, eval=FALSE}
 library(headliner)
 data(sciencegeist)
 
-sciencegeist <- head(sciencegeist)
+sciencegeist <- head(sciencegeist, 20)
 build_hd(sciencegeist, 
          title = "Sciencegeist newest posts", 
-         save_as = "headlines.html")
+         save_as = "headlines.html",
+         layout = "card")
+```
+
+
+```{r thumb-1, echo=FALSE, out.width = "40%"}
+knitr::include_graphics('man/figures/README-sciencegeist_html.png')
+```
+
+```{r example-2, eval=FALSE}
+sciencegeist <- head(sciencegeist, 20)
+build_hd(sciencegeist, 
+         title = "Sciencegeist newest posts", 
+         save_as = "headlines.pdf")
+```
+
+
+```{r thumb-2, echo=FALSE, out.width = "40%"}
+knitr::include_graphics('man/figures/README-sciencegeist_pdf.png')
 ```

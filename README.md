@@ -42,8 +42,20 @@ Use this example to publish the contents of a data frame:
 library(headliner)
 data(sciencegeist)
 
-sciencegeist <- head(sciencegeist)
+sciencegeist <- head(sciencegeist, 20)
 build_hd(sciencegeist, 
          title = "Sciencegeist newest posts", 
-         save_as = "headlines.html")
+         save_as = "headlines.html",
+         layout = "card")
 ```
+
+<img src="man/figures/README-sciencegeist_html.png" width="40%" />
+
+``` r
+sciencegeist <- head(sciencegeist, 20)
+build_hd(sciencegeist, 
+         title = "Sciencegeist newest posts", 
+         save_as = "headlines.pdf")
+```
+
+<img src="man/figures/README-sciencegeist_pdf.png" width="40%" />

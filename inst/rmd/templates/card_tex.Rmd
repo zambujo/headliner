@@ -9,8 +9,6 @@
 
 \footnotesize
 
-\textbf{\textit{$(pubDate)}}
-
 ```{r echo=FALSE, out.width='3cm', eval=showImages}
 knitr::include_graphics("$(tmp)")
 ```
@@ -19,7 +17,7 @@ knitr::include_graphics("$(tmp)")
 
 \scriptsize
 
-\textbf{Source: }\texttt{$(domain)}
+\textbf{Source: $(domain)} | $(pubDate)
 
 \End{maintextbox}
 

@@ -1,20 +1,23 @@
 
-<div class="col-xs-12 col-sm-6">
+<div class='col-xs-12 col-sm-6'>
 
-<div class="thumbnail">
+<div class='thumbnail'>
 
-<a href="{{link}}" rel="noopener noreferrer" target="_blank">
+<a href='{{link}}' rel='noopener noreferrer' target='_blank'>
 
 ```{r echo=FALSE, eval=showImages}
-knitr::include_graphics("{{tmp}}")
+knitr::include_graphics('{{image}}')
 ```
 
-<div class="caption">
+<div class='caption'>
 
 <h4>{{title}}</h4>
 
 <p><small>{{description}}</small></p>
 
-<p><small><span class="badge badge-pill badge-light">{{pubDate}}</span></small></p>
+<p><small>
+<span class='badge badge-pill badge-secondary'>Source: {{domain}}</span> 
+{{pubDate}}
+</small></p>
 
 </div></a></div></div>

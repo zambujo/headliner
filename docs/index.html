@@ -102,10 +102,17 @@
 <div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">headliner</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="no">sciencegeist</span>)
 
-<span class="no">sciencegeist</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">sciencegeist</span>)
+<span class="no">sciencegeist</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">sciencegeist</span>, <span class="fl">20</span>)
 <span class="fu"><a href="reference/build_hd.html">build_hd</a></span>(<span class="no">sciencegeist</span>,
          <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Sciencegeist newest posts"</span>,
-         <span class="kw">save_as</span> <span class="kw">=</span> <span class="st">"headlines.html"</span>)</pre></div>
+         <span class="kw">save_as</span> <span class="kw">=</span> <span class="st">"headlines.html"</span>,
+         <span class="kw">layout</span> <span class="kw">=</span> <span class="st">"card"</span>)</pre></div>
+<p><img src="reference/figures/README-sciencegeist_html.png" width="40%"></p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="no">sciencegeist</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">sciencegeist</span>, <span class="fl">20</span>)
+<span class="fu"><a href="reference/build_hd.html">build_hd</a></span>(<span class="no">sciencegeist</span>,
+         <span class="kw">title</span> <span class="kw">=</span> <span class="st">"Sciencegeist newest posts"</span>,
+         <span class="kw">save_as</span> <span class="kw">=</span> <span class="st">"headlines.pdf"</span>)</pre></div>
+<p><img src="reference/figures/README-sciencegeist_pdf.png" width="40%"></p>
 </div>
 </div>
   </div>

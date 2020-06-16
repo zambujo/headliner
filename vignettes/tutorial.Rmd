@@ -3,8 +3,10 @@ title: "How to publish headlines"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{How to publish headlines}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -25,7 +27,7 @@ data(sciencegeist)
 
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build_hd(title = "Sciencegeist latest news",
+  build_hd(title = "Sciencegeist newsfeed",
            save_as = "headlines.html")
 ```
 
@@ -36,7 +38,7 @@ Please note: images are not shown in this layout.
 ```{r, eval=FALSE}
 sciencegeist %>% 
   filter(pubDate > "2020-06-01") %>%
-  build_hd(title = "Sciencegeist latest news", 
+  build_hd(title = "Sciencegeist newsfeed", 
            save_as = "headlines.html",
            layout = "card")
 ```
@@ -46,8 +48,8 @@ sciencegeist %>%
 ```{r, eval=FALSE}
 sciencegeist %>% 
   # filter(pubDate > "2020-06-01") %>%
-  head(21) %>%
-  build_hd(title = "Sciencegeist latest news", 
+  head(20) %>% # 21 gives two erros: &amp; in title and .gif
+  build_hd(title = "Sciencegeist newsfeed", 
            save_as = "headlines.pdf")
 ```
 

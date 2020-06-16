@@ -81,7 +81,6 @@ build_hd.data.frame <- function(.data,
                   main_title = title),
     quiet = FALSE) # FALSE for debugging
 
-  # Sys.sleep(5)
   if (file.exists(here::here("tmp"))) {
     message("Cleaning up temporary files ......")
     unlink(here::here("tmp"), recursive = TRUE, force = TRUE)
