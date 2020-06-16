@@ -45,7 +45,8 @@ sciencegeist %>%
 
 ```{r, eval=FALSE}
 sciencegeist %>% 
-  filter(pubDate > "2020-06-01") %>%
+  # filter(pubDate > "2020-06-01") %>%
+  head(21) %>%
   build_hd(title = "Sciencegeist latest news", 
            save_as = "headlines.pdf")
 ```
