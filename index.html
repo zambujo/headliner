@@ -105,11 +105,20 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/zambujo/headliner">headliner</a></span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(<span class="kw">sciencegeist</span>)
 
-<span class="kw">sciencegeist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">sciencegeist</span>)
+<span class="kw">sciencegeist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">sciencegeist</span>, <span class="fl">20</span>)
 <span class="fu"><a href="reference/build_hd.html">build_hd</a></span>(<span class="kw">sciencegeist</span>, 
          title = <span class="st">"Sciencegeist newest posts"</span>, 
-         save_as = <span class="st">"headlines.html"</span>)
+         save_as = <span class="st">"headlines.html"</span>,
+         layout = <span class="st">"card"</span>)
 </pre></div>
+<p><img src="reference/figures/README-sciencegeist_html.png" width="40%"></p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">sciencegeist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">sciencegeist</span>, <span class="fl">20</span>)
+<span class="fu"><a href="reference/build_hd.html">build_hd</a></span>(<span class="kw">sciencegeist</span>, 
+         title = <span class="st">"Sciencegeist newest posts"</span>, 
+         save_as = <span class="st">"headlines.pdf"</span>)
+</pre></div>
+<p><img src="reference/figures/README-sciencegeist_pdf.png" width="40%"></p>
 </div>
 </div>
   </div>
