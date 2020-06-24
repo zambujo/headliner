@@ -30,7 +30,7 @@ build_hd.data.frame <- function(.data,
                                 title = "Headlines",
                                 layout = "list") {
   # for consistency (file path in package)
-  path_to_template <- system.file("rmd", "main.Rmd", package = "headliner")
+  path_to_template <- fs::path_package(package = "headliner", "rmd", "main.Rmd")
 
   # require output format to be either "html" or "pdf"
   stopifnot('Please save as \".html\" or \".pdf\"...' =

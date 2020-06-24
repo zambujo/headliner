@@ -25,7 +25,8 @@ Imports:
     rmarkdown,
     urltools,
     dplyr,
-    here
+    here,
+    fs
 VignetteBuilder: knitr
 Suggests: 
     devtools
