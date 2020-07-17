@@ -7,7 +7,7 @@
 #'   Either *.pdf* and *.html*.
 #' @param title A string with the title of the headlines page.
 #' @param layout A string with the style layout. Pass "list" or "card".
-#'   Please note that a *.pdf* document sets the layout to "card".
+#'   Please note that a *.pdf* document sets *layout* to "card".
 #'
 #' @return 0
 #'
