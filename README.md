@@ -18,8 +18,7 @@ status](https://github.com/zambujo/headliner/workflows/R-CMD-check/badge.svg)](h
 README](https://github.com/zambujo/headliner/workflows/Render%20README/badge.svg)
 <!-- badges: end -->
 
-`{headliner}` is an R :package: to publish headlines from RSS data. In other words, it
-provides a static generator for headlines.
+`{headliner}` is an R :package: to publish headlines from RSS data.
 
 ## Installation
 
