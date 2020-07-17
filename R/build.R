@@ -7,6 +7,7 @@
 #'   Either *.pdf* and *.html*.
 #' @param title A string with the title of the headlines page.
 #' @param layout A string with the style layout. Pass "list" or "card".
+#'   Please note that a *.pdf* document sets the layout to "card".
 #'
 #' @return 0
 #'
@@ -38,6 +39,7 @@ build_hd.data.frame <- function(.data,
 
   if (grepl("*[.]pdf$", save_as)) {
     format <- "pdf_document"
+    # if format pdf_document, force layout to card
     layout <- "card"
   } else {
     format <- "html_document"

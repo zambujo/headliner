@@ -26,7 +26,8 @@ Imports:
     urltools,
     dplyr,
     here,
-    fs
+    fs,
+    magick
 VignetteBuilder: knitr
 Suggests: 
     devtools
