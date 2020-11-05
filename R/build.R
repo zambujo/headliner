@@ -30,7 +30,8 @@ build_hd.data.frame <- function(.data,
                                 title = "Headlines",
                                 layout = "list") {
   # for consistency (file path in package)
-  path_to_template <- fs::path_package(package = "headliner", "rmd", "main.Rmd")
+  path_to_template <-
+    fs::path_package(package = "headliner", "rmd", "main.Rmd")
 
   # require output format to be either "html" or "pdf"
   stopifnot('Please save as \".html\" or \".pdf\"...' =
@@ -76,14 +77,19 @@ build_hd.data.frame <- function(.data,
     output_format = format,
     output_file = save_as,
     output_dir = here::here(),
-    params = list(headlines = .data,
-                  block_type = layout,
-                  main_title = title),
-    quiet = FALSE) # FALSE for debugging
+    params = list(
+      headlines = .data,
+      block_type = layout,
+      main_title = title
+    ),
+    quiet = FALSE
+  ) # FALSE for debugging
 
   if (file.exists(here::here("tmp"))) {
     message("Cleaning up temporary files ......")
-    unlink(here::here("tmp"), recursive = TRUE, force = TRUE)
+    unlink(here::here("tmp"),
+           recursive = TRUE,
+           force = TRUE)
   }
 
   return(0)
