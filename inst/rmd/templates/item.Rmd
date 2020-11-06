@@ -3,4 +3,4 @@
 
 **`r '{{description}}'`**
 
-`r '{{pubDate}}'`
+`r '{{pub_date}}'`

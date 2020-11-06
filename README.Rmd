@@ -49,10 +49,10 @@ library(headliner)
 data(sciencegeist)
 
 sciencegeist <- head(sciencegeist, 20)
-build_hd(sciencegeist, 
-         title = "Sciencegeist newest posts", 
-         save_as = "headlines.html",
-         layout = "card")
+headlines(sciencegeist, 
+          title = "Sciencegeist newest posts", 
+          save_as = "headlines.html",
+          layout = "card")
 ```
 
 
@@ -62,9 +62,9 @@ knitr::include_graphics('man/figures/README-sciencegeist_html.png')
 
 ```{r example-2, eval=FALSE}
 sciencegeist <- head(sciencegeist, 20)
-build_hd(sciencegeist, 
-         title = "Sciencegeist newest posts", 
-         save_as = "headlines.pdf")
+headlines(sciencegeist, 
+          title = "Sciencegeist newest posts", 
+          save_as = "headlines.pdf")
 ```
 
 

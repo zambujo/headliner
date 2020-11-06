@@ -4,10 +4,13 @@
     <loc>https://zambujo.github.io/headliner//index.html</loc>
   </url>
   <url>
-    <loc>https://zambujo.github.io/headliner//reference/build_hd.html</loc>
+    <loc>https://zambujo.github.io/headliner//reference/headlines.html</loc>
   </url>
   <url>
     <loc>https://zambujo.github.io/headliner//reference/pipe.html</loc>
+  </url>
+  <url>
+    <loc>https://zambujo.github.io/headliner//reference/rss_to_df.html</loc>
   </url>
   <url>
     <loc>https://zambujo.github.io/headliner//reference/sciencegeist.html</loc>

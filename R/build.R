@@ -2,7 +2,7 @@
 #'
 #' @param .data A data frame, data frame extension (e.g. a tibble),
 #'   or a lazy data frame.  Expects the following string columns
-#'   *title* (required), *description*, *link*, *pubDate*, and *image*.
+#'   *title* (required), *description*, *link*, *pub_date*, and *thumbnail*.
 #' @param save_as A string with the output file name.
 #'   Either *.pdf* and *.html*.
 #' @param title A string with the title of the headlines page.
@@ -14,18 +14,18 @@
 #' \dontrun{
 #' data(sciencegeist)
 #' sciencegeist <- utils::head(sciencegeist)
-#' build_hd(sciencegeist, "sciencegeist.html")
+#' headlines(sciencegeist, "sciencegeist.html")
 #' }
 #' @export
-build_hd <- function(.data,
+headlines <- function(.data,
                      save_as,
                      title = "Headlines",
                      layout = "list") {
-  UseMethod("build_hd")
+  UseMethod("headlines")
 }
 
 #' @export
-build_hd.data.frame <- function(.data,
+headlines.data.frame <- function(.data,
                                 save_as,
                                 title = "Headlines",
                                 layout = "list") {
@@ -54,8 +54,8 @@ build_hd.data.frame <- function(.data,
 
   empty_col <- rep("", nrow(.data))
 
-  if (!"pubDate" %in% colnames(.data))
-    .data <- cbind(.data, pubDate = empty_col)
+  if (!"pub_date" %in% colnames(.data))
+    .data <- cbind(.data, pub_date = empty_col)
 
   if (!"description" %in% colnames(.data))
     .data <- cbind(.data, description = empty_col)
