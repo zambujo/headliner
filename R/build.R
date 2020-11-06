@@ -2,7 +2,7 @@
 #'
 #' @param .data A data frame, data frame extension (e.g. a tibble),
 #'   or a lazy data frame.  Expects the following string columns
-#'   *title* (required), *description*, *link*, *pubDate*, and *image*.
+#'   *title* (required), *description*, *link*, *pub_date*, and *thumbnail*.
 #' @param save_as A string with the output file name.
 #'   Either *.pdf* and *.html*.
 #' @param title A string with the title of the headlines page.
@@ -15,23 +15,24 @@
 #' \dontrun{
 #' data(sciencegeist)
 #' sciencegeist <- utils::head(sciencegeist)
-#' build_hd(sciencegeist, "sciencegeist.html")
+#' headlines(sciencegeist, "sciencegeist.html")
 #' }
 #' @export
-build_hd <- function(.data,
+headlines <- function(.data,
                      save_as,
                      title = "Headlines",
                      layout = "list") {
-  UseMethod("build_hd")
+  UseMethod("headlines")
 }
 
 #' @export
-build_hd.data.frame <- function(.data,
+headlines.data.frame <- function(.data,
                                 save_as,
                                 title = "Headlines",
                                 layout = "list") {
   # for consistency (file path in package)
-  path_to_template <- fs::path_package(package = "headliner", "rmd", "main.Rmd")
+  path_to_template <-
+    fs::path_package(package = "headliner", "rmd", "main.Rmd")
 
   # require output format to be either "html" or "pdf"
   stopifnot('Please save as \".html\" or \".pdf\"...' =
@@ -55,8 +56,8 @@ build_hd.data.frame <- function(.data,
 
   empty_col <- rep("", nrow(.data))
 
-  if (!"pubDate" %in% colnames(.data))
-    .data <- cbind(.data, pubDate = empty_col)
+  if (!"pub_date" %in% colnames(.data))
+    .data <- cbind(.data, pub_date = empty_col)
 
   if (!"description" %in% colnames(.data))
     .data <- cbind(.data, description = empty_col)
@@ -78,14 +79,19 @@ build_hd.data.frame <- function(.data,
     output_format = format,
     output_file = save_as,
     output_dir = here::here(),
-    params = list(headlines = .data,
-                  block_type = layout,
-                  main_title = title),
-    quiet = FALSE) # FALSE for debugging
+    params = list(
+      headlines = .data,
+      block_type = layout,
+      main_title = title
+    ),
+    quiet = FALSE
+  ) # FALSE for debugging
 
   if (file.exists(here::here("tmp"))) {
     message("Cleaning up temporary files ......")
-    unlink(here::here("tmp"), recursive = TRUE, force = TRUE)
+    unlink(here::here("tmp"),
+           recursive = TRUE,
+           force = TRUE)
   }
 
   return(0)

@@ -17,7 +17,7 @@ knitr::include_graphics("$(tmp)")
 
 \scriptsize
 
-\textbf{Source: $(domain)} | $(pubDate)
+\textbf{Source: $(domain)} | $(pub_date)
 
 \End{maintextbox}
 

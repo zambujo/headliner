@@ -17,7 +17,7 @@ classoption: twocolumn
 
 ```{r parameters, include=FALSE}
 df <- purrr::pluck(params, "headlines")
-showImages <- "image" %in% colnames(df)
+showImages <- "thumbnail" %in% colnames(df)
 ```
 
 
@@ -31,7 +31,7 @@ if (showImages) {
                                     here::here("tmp"),
                                     dplyr::row_number()))
   dir.create(here::here("tmp"))
-  purrr::walk2(dplyr::pull(df, image),
+  purrr::walk2(dplyr::pull(df, thumbnail),
                dplyr::pull(df, tmp),
                download.file)
 }

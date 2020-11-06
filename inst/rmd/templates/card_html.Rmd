@@ -17,7 +17,7 @@ knitr::include_graphics('{{image}}')
 
 <p><small>
 <span class='badge badge-pill badge-secondary'>Source: {{domain}}</span> 
-{{pubDate}}
+{{pub_date}}
 </small></p>
 
 </div></a></div></div>
