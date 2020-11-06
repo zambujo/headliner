@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Headlines sourced from sciencegeist.com's RSS feed — sciencegeist • headliner</title>
+<title>Parse an RSS feed (XML) — rss_to_df • headliner</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Headlines sourced from sciencegeist.com's RSS feed — sciencegeist" />
-<meta property="og:description" content="A dataset containing 118 headlines in science policy." />
+<meta property="og:title" content="Parse an RSS feed (XML) — rss_to_df" />
+<meta property="og:description" content="Parse an RSS feed (XML)" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joaoTweeted" />
 <meta name="twitter:site" content="@joaoTweeted" />
@@ -117,35 +117,46 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Headlines sourced from sciencegeist.com's RSS feed</h1>
-    <small class="dont-index">Source: <a href='https://github.com/zambujo/headliner/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>sciencegeist.Rd</code></div>
+    <h1>Parse an RSS feed (XML)</h1>
+    <small class="dont-index">Source: <a href='https://github.com/zambujo/headliner/blob/master/R/rss.R'><code>R/rss.R</code></a></small>
+    <div class="hidden name"><code>rss_to_df.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing 118 headlines in science policy.</p>
+    <p>Parse an RSS feed (XML)</p>
     </div>
 
-    <pre class="usage"><span class='va'>sciencegeist</span></pre>
+    <pre class="usage"><span class='fu'>rss_to_df</span><span class='op'>(</span><span class='va'>rss_feed</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>rss_feed</th>
+      <td><p>A string pointing to the RSS URL.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 118 rows and 4 columns:</p><dl>
-<dt>title</dt><dd><p>Title of the headline on sciencegeist.</p></dd>
-<dt>link</dt><dd><p>Link to the original source.</p></dd>
-<dt>description</dt><dd><p>Description of the headline.</p></dd>
-<dt>pub_date</dt><dd><p>Date of publication on the sciencegeist website.</p></dd>
-<dt>dc_creator</dt><dd><p>Topic or topics, comma-separated.</p></dd>
-<dt>guid</dt><dd><p>Link to image on sciencegeist.</p></dd>
-<dt>thumbnail</dt><dd><p>Link to thumbnail on the sciencegeist website.</p></dd>
+    <p>A tibble with RSS data.</p>
 
-</dl>
-
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p><a href='https://www.sciencegeist.ch/news/rss'>https://www.sciencegeist.ch/news/rss</a></p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>rss_to_df</span><span class='op'>(</span><span class='st'>"https://www.sciencegeist.ch/news/rss"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 117 x 7</span><span>
+#&gt;    title      link       description     pub_date dc_creator  guid  thumbnail   
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>       
+#&gt; </span><span style='color: #555555;'> 1</span><span> OASPA Fou… https://o… A neutral, ind… 2020-11… Open Access 14582 </span><span style='color: #BB0000;'>NA</span><span>          
+#&gt; </span><span style='color: #555555;'> 2</span><span> DOAJ to L… https://b… DOAJ, the CLOC… 2020-11… Open Access 14583 https://www…
+#&gt; </span><span style='color: #555555;'> 3</span><span> Gradually… https://s… Racism, climat… 2020-11… COVID-19 ,… 14584 https://www…
+#&gt; </span><span style='color: #555555;'> 4</span><span> Scientist… https://w… With so many v… 2020-11… US , Polit… 14573 https://www…
+#&gt; </span><span style='color: #555555;'> 5</span><span> U.S. Elec… https://w… Several scient… 2020-11… US , Polit… 14574 https://www…
+#&gt; </span><span style='color: #555555;'> 6</span><span> Guest Pos… https://s… Susan Spilka a… 2020-11… Diversity   14575 https://www…
+#&gt; </span><span style='color: #555555;'> 7</span><span> A New Hip… https://w… A new oath ask… 2020-11… Medicine ,… 14576 </span><span style='color: #BB0000;'>NA</span><span>          
+#&gt; </span><span style='color: #555555;'> 8</span><span> Research … http://ww… More than 160 … 2020-11… Horizon Eu… 14577 </span><span style='color: #BB0000;'>NA</span><span>          
+#&gt; </span><span style='color: #555555;'> 9</span><span> Scientist… https://w… Researchers sa… 2020-11… Medicine ,… 14568 https://www…
+#&gt; </span><span style='color: #555555;'>10</span><span> 'Stick to… https://w… A three-part p… 2020-11… Science , … 14570 https://www…
+#&gt; </span><span style='color: #555555;'># … with 107 more rows</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

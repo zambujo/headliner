@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Headlines sourced from sciencegeist.com's RSS feed — sciencegeist • headliner</title>
+<title>Build headline pages — headlines • headliner</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Headlines sourced from sciencegeist.com's RSS feed — sciencegeist" />
-<meta property="og:description" content="A dataset containing 118 headlines in science policy." />
+<meta property="og:title" content="Build headline pages — headlines" />
+<meta property="og:description" content="Build headline pages" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@joaoTweeted" />
 <meta name="twitter:site" content="@joaoTweeted" />
@@ -117,35 +117,52 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Headlines sourced from sciencegeist.com's RSS feed</h1>
-    <small class="dont-index">Source: <a href='https://github.com/zambujo/headliner/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>sciencegeist.Rd</code></div>
+    <h1>Build headline pages</h1>
+    <small class="dont-index">Source: <a href='https://github.com/zambujo/headliner/blob/master/R/build.R'><code>R/build.R</code></a></small>
+    <div class="hidden name"><code>headlines.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A dataset containing 118 headlines in science policy.</p>
+    <p>Build headline pages</p>
     </div>
 
-    <pre class="usage"><span class='va'>sciencegeist</span></pre>
+    <pre class="usage"><span class='fu'>headlines</span><span class='op'>(</span><span class='va'>.data</span>, <span class='va'>save_as</span>, title <span class='op'>=</span> <span class='st'>"Headlines"</span>, layout <span class='op'>=</span> <span class='st'>"list"</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.data</th>
+      <td><p>A data frame, data frame extension (e.g. a tibble),
+or a lazy data frame.  Expects the following string columns
+<em>title</em> (required), <em>description</em>, <em>link</em>, <em>pub_date</em>, and <em>thumbnail</em>.</p></td>
+    </tr>
+    <tr>
+      <th>save_as</th>
+      <td><p>A string with the output file name.
+Either <em>.pdf</em> and <em>.html</em>.</p></td>
+    </tr>
+    <tr>
+      <th>title</th>
+      <td><p>A string with the title of the headlines page.</p></td>
+    </tr>
+    <tr>
+      <th>layout</th>
+      <td><p>A string with the style layout. Pass "list" or "card".</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data frame with 118 rows and 4 columns:</p><dl>
-<dt>title</dt><dd><p>Title of the headline on sciencegeist.</p></dd>
-<dt>link</dt><dd><p>Link to the original source.</p></dd>
-<dt>description</dt><dd><p>Description of the headline.</p></dd>
-<dt>pub_date</dt><dd><p>Date of publication on the sciencegeist website.</p></dd>
-<dt>dc_creator</dt><dd><p>Topic or topics, comma-separated.</p></dd>
-<dt>guid</dt><dd><p>Link to image on sciencegeist.</p></dd>
-<dt>thumbnail</dt><dd><p>Link to thumbnail on the sciencegeist website.</p></dd>
+    <p>0</p>
 
-</dl>
-
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p><a href='https://www.sciencegeist.ch/news/rss'>https://www.sciencegeist.ch/news/rss</a></p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>sciencegeist</span><span class='op'>)</span>
+<span class='va'>sciencegeist</span> <span class='op'>&lt;-</span> <span class='fu'>utils</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>sciencegeist</span><span class='op'>)</span>
+<span class='fu'>headlines</span><span class='op'>(</span><span class='va'>sciencegeist</span>, <span class='st'>"sciencegeist.html"</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
