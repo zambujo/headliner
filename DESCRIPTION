@@ -30,8 +30,8 @@ Imports:
     janitor,
     parsedate,
     xml2,
-    stringr
+    stringr,
+    httr
 VignetteBuilder: knitr
 Suggests: 
     devtools
-
